@@ -1,0 +1,70 @@
+@import '../../../../assets/styles/constants.scss';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+.menu {
+    flex-direction: column;
+
+
+    li {
+        // -webkit-user-drag: none;
+        cursor: pointer;
+
+        a{
+            color: $colorLighter;
+            letter-spacing: 6px;            
+            font-size: 1.3em;
+            position: relative;
+            transition: 0.5s all;
+
+            &.active {
+                font-weight: bold;
+                color: white;
+            }
+
+            &.holding-link {            
+                animation: holdMenuItem 1s;
+                color: white;
+            }
+
+            &:hover {
+                border-right: 10px solid $colorLighter;                
+            }
+        }
+    }
+
+    @media only screen and (max-width: $desktopWidth) { 
+        width: 100%;
+        li {
+            text-align: center;
+            margin: 15px 0px 15px 0px;
+            position: absolute;
+            width: 100%;
+            
+            &.about {
+                top: 25%;
+            }
+            &.skills {
+                top: 40%;
+            }
+            &.experiences {
+                top: 55%;
+            }
+
+            a {
+                padding: 0;
+                &:hover {
+                    border-right: none;                
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes holdMenuItem {
+0% {font-size: 1.3em; top: 0px;}
+80% {font-size: 1.5em; top: -2px;}
+90% {font-size: 1.53em; top: -2px;}
+100% {font-size: 1.3em; top: 0px;}
+}

@@ -1,0 +1,321 @@
+@import '../../../../assets/styles/constants.scss';
+
+
+.nav-background {
+    background-image: radial-gradient(circle at center, $colorDarker, $colorMedium);
+    height: 100%;
+    position: fixed;
+    width: 300px;
+    max-width: 100vw;
+    -webkit-transform-origin: 50%  51%; 
+    z-index: 10;
+    transition: all 0.5s;
+    animation: elementAppears 1s;
+
+    &.menu-bar-closed {
+        overflow: visible;
+        left: 0px;
+        transform: translateX(-367px);
+
+
+        .toggle-button {
+            top: 13px;
+            left: 40px;
+            border-color: $colorDarker;
+            transform: translateX(367px);
+
+            .line{
+                border-bottom: 2px solid $colorDarker;
+            }
+
+            &:hover {
+                .line{
+                    border-bottom: 4px solid $colorDarker;
+                }
+            }
+        }
+    }
+
+    .toggle-button {
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        border: 2px solid $colorLighter;
+        border-radius: 8px;
+        top: 13px;
+        left: 240px;
+        z-index: 2;
+        transition: all 0.5s;
+        cursor: pointer;       
+        animation: navbaritems-appear 3s; 
+
+        .line{
+            position: absolute;
+            width: 28px;
+            border-bottom: 2px solid $colorLighter;
+            transition: all 0.2s;
+
+            &.top-line {
+                transform: translateY(8px);
+
+                &.menu-toggled {
+                    transform: translateY(0px) rotate(-45deg);
+                }
+            }
+
+            &.medium-line.menu-toggled {
+                opacity: 0;
+            }
+                
+            &.bottom-line {
+                transform: translateY(-8px);
+
+                &.menu-toggled {
+                    transform: translateY(0px) rotate(45deg);
+                }
+            }
+        }
+
+        &:hover {
+            .line{
+                border-bottom: 4px solid $colorLighter;
+            }
+
+            .medium-line{
+                width: 34px;    
+            }
+        }
+    }
+
+    #sidebar {
+        width: 300px;
+        height: 100%;
+        // position: fixed;
+        top: 0;
+        top: 15px;
+        transition: all 0.5s;
+        color: white;
+
+        app-nav-menu {
+            display: block;
+        }
+
+        .brand {            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            font-size: 1.4em;
+
+            .photo {   
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;                
+                border: 1px solid;
+                opacity: 1;
+            }
+
+            .brand-text {
+                .name {
+                    font-weight: bold;
+                    margin-top: 10px;
+                }
+
+                .job {
+                    font-size: 0.8em;
+                }
+            }
+        }
+
+        hr {
+            width: 120px;
+            color: black;
+        }
+
+        .contact {
+            border: 1px solid;
+            background-color: $colorMedium;
+            cursor: pointer;
+            width: 180px;
+            text-align: center;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 45px;
+            padding: 6px;
+            left: 60px;
+        }
+
+        .networks {            
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+            padding-inline-start: 0px;
+            position: absolute;
+            width: 300px;
+            bottom: 0px;
+
+            a {
+                color: black;
+            }
+        }
+    }
+
+
+@media only screen and (max-width: $desktopWidth) {
+
+
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        transition: 0.4s height;
+        overflow: hidden;
+
+        &.bar-hidden {
+            display: none !important;
+        }
+
+        &.menu-bar-closed {
+            // height: 0px;    // Remove to have the header with photo always visible
+            transform: none;
+            height: 80px;
+            width: 100%;
+
+            #sidebar { 
+                // transform: translateY(-70px); // Remove to have the header with photo always visible
+                transform: none;
+
+                // /deep/
+                app-translation, app-nav-menu, app-nav-location, app-nav-notification, .networks  {
+                    display: none;
+                    // opacity: 0;
+                }
+
+                .networks {
+                    transition: 0s all;
+                }
+            }
+
+            .toggle-button {
+                top: 13px;
+                left: 15px;
+                border-color: $colorLighter;
+                transform: none;
+    
+                .line{
+                    border-bottom: 2px solid $colorLighter;
+                }
+    
+                &:hover {
+                    .line{
+                        border-bottom: 4px solid $colorLighter;
+                    }
+                }
+
+                @media only screen and (max-width: 400px) {
+                    width: 40px;
+                    height: 40px;
+                    top: 20px;
+                    left: 2%;
+                }
+            }
+        }
+
+        .toggle-button {
+            left: 15px;
+
+            @media only screen and (max-width: 400px) {
+                width: 40px;
+                height: 40px;
+                top: 20px;
+                left: 2%;
+            }
+        }
+
+     #sidebar {
+        height: 100%;
+        width: 100%;
+        transform: none;
+        top: 0;
+        left: 0;    
+
+
+        .brand {
+            margin-left: 60px;
+            width: calc(100vw - 46vw);
+            height: 80px;
+            display: flex;
+            flex-direction: row;                    
+            margin-top: 0px;                    
+            font-size: 1em;
+        
+            .photo {             
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            .brand-text {
+                .name {
+                    margin-top: 0px;
+                }
+
+                .job {
+                    display: none;
+                }
+            }
+
+            @media only screen and (max-width: 400px) {
+                margin-left: 54px;
+
+                .brand-text {
+                    font-size: 0.9em;
+                }
+
+                .photo {             
+                    margin-right: 1px;
+                }
+            }
+        }
+
+//         .menu {
+//             display: none;
+//         }
+
+        .contact {
+            width: 25vw;
+            position: absolute;
+            bottom: auto;
+            left: auto;
+            right: 3%;
+            top: 22px;
+
+            @media only screen and (max-width: 400px) {
+                font-size: 0.8em;                
+                top: 25px;
+            }
+        }
+
+        // /deep/
+        app-translation, app-nav-menu, app-nav-location, app-nav-notification, .networks  {
+            animation: elementAppears 0.3s;
+        }
+
+        hr {
+            display: none;
+        }
+         .networks {
+            transition: 1.8s opacity;
+            bottom: 0px;        
+            left: 50%;
+            transform: translateX(-50%);
+             }
+          }
+    }
+}
+
+@keyframes elementAppears {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}

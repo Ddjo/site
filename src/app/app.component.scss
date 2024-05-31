@@ -1,0 +1,115 @@
+
+@import '../assets/styles/constants.scss';
+
+// .content-background {
+//   position: absolute;        
+//   background-image: url('../assets/images/wood-backgroundxs.jpg');
+//   background-position: 50% 50%;
+//   width: 100%;
+//   height: 100%;
+//   opacity: 0.4;
+// }
+
+.modal-overlay, .content-overlay {
+  position: fixed;  
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+  width: 100vw;
+  height: 100%;
+  transition: all 0.5s;
+
+  &.displayed {
+    opacity: 0.5;
+  }
+}
+
+.modal-overlay {
+  z-index: 100;
+}
+
+.content-overlay {
+  z-index: 1;
+
+    @media only screen and (max-width: $desktopWidth) { 
+      display: none;
+    }
+}
+
+.modal-container {
+  background-color: white;
+  position: fixed;
+  width: 92%;
+  height: 93%;
+  border-radius: 12px;
+  max-width: 600px;
+  max-height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101; 
+  transition: all 0.9s;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);  
+  animation: displayModalAnimation 0.5s;
+
+  &.hidden {
+    transform: translateY(-150%) rotate3d(0, 1, 0.5, 3.142rad);
+  }
+
+  .close-modal-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $colorMedium;
+    background: white;
+    position: absolute;
+    right: 0;
+    transform: translate(40%, -40%);
+    cursor:pointer;
+  }
+}
+
+.multi-page-content {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-mdp{
+  width: 100vw;
+  height: 100%;
+  background: white;
+  position: absolute;
+  z-index: 100;
+  font-size: larger;
+
+  .coin {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+
+.multi-page-content{
+  animation: contentAppear 1s;    
+}
+  
+@keyframes contentAppear {
+0% {opacity: 0}
+50% {opacity: 0}
+100% {opacity: 1}
+}
+
+@keyframes displayModalAnimation {
+  0% {transform: translate(-50%, -150%);}
+  40% {transform: translate(-50%, -45%);}
+  100% { transform: translate(-50%, -50%);}
+}
+

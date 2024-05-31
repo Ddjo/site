@@ -1,0 +1,41 @@
+
+<div class="scales">
+
+    <div class="manche">        
+        <div class="sillet"></div>
+        <div *ngFor="let fret of fretList" class="fret fret-{{fret}}">
+            <div class='fret-number' *ngIf="fretNumberToDisplay.includes(fret)">
+                {{fret + 1}}
+            </div>
+        </div>
+        <div class="cordes">            
+            <div *ngFor="let corde of displayedStrings" class="corde">
+                <div class="note note-corde-vide">
+                    <div class="note-name" *ngIf="isNoteInCurrentScale(corde.vide)"
+                    [ngClass]="{'tonic': isNoteTonic(corde.vide), 'third' : isNoteThird(corde.vide)}">
+                        {{corde.vide}}
+                    </div>
+                </div>
+                <div *ngFor="let fret of fretList" class="note fret-{{fret}}">
+                    <div class="note-name" *ngIf="isNoteInCurrentScale(corde.notes[fret])" 
+                    [ngClass]="{'tonic': isNoteTonic(corde.notes[fret]), 'third' : isNoteThird(corde.notes[fret])}">
+                        {{corde.notes[fret]}}
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="corps"></div>
+</div>
+
+<div class="scale-filter ">
+    note :<select (ngModelChange)="changeScale()" [(ngModel)]="selectedNote">
+        <option [ngValue]="0"></option>
+        <option *ngFor="let note of notes" [ngValue]="note"> {{note}}</option>
+    </select>
+    gamme :<select (ngModelChange)="changeScale()" [(ngModel)]="selectedGamme">
+            <option [ngValue]="0"></option>
+            <option *ngFor="let gamme of gammes" [ngValue]="gamme.id"> {{gamme.name}}</option>
+        </select>
+    basse <input type="checkbox" [(ngModel)]="isBass" (click)="toggleBass()"> 
+</div>

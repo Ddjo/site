@@ -1,0 +1,168 @@
+@import '../../../../assets/styles/constants.scss';
+
+    
+.scales {
+    // height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: grey;
+    padding-top: 40px;
+    padding-bottom: 25px;
+
+    .manche {
+        height: 200px;
+        width: calc(96% - 17px);
+        transform: translateX(10px);
+        border: 1px black solid;
+        display: flex;
+        background-color: burlywood;
+        position: relative;
+        z-index: 1;
+
+        .sillet {
+            width: 7px;
+            height: 204px;
+            transform: translate(-2px, -2px);
+            border-radius: 2px;
+            background-color: silver;
+        }
+
+        .fret-number{
+            transform: translateY(-25px);
+        }
+
+        .fret {
+            height: 100%;
+            box-shadow: 1px 1px 3px grey;
+            border-right: 2px solid silver;
+            display: flex;
+            justify-content: center;
+        }
+
+        .fret-0 {
+            width: 8.5%;
+        }
+        .fret-1 {
+            width: 8%;
+        }
+        .fret-2 {
+            width: 7.6%;
+        }
+        .fret-3 {
+            width: 7.2%;
+        }
+        .fret-4 {
+            width: 7.2%;
+        }
+        .fret-5 {
+            width: 7.2%;
+        }
+        .fret-6 {
+            width: 6.8%;
+        }
+        .fret-7 {
+            width: 6.5%;
+        }
+        .fret-8 {
+            width: 6.2%;
+        }
+        .fret-9 {
+            width: 5.9%;
+        }
+        .fret-10 {
+            width: 5.7%;
+        }
+        .fret-11 {
+            width: 5.5%;
+        }
+        .fret-12 {
+            width: 5.3%;
+        }
+        .fret-13 {
+            width: 5.1%;
+        }
+        .fret-14 {
+            width: 5%;
+        }
+
+        .cordes {
+            width: 101%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            position: absolute;
+
+            .corde{
+                background-color: black;
+                height: 2px;
+                display: flex;
+
+                .note-corde-vide {
+                    position: absolute;
+                    transform: translate(-26px, -9px);
+
+                    .note-name { 
+                        border: 1px solid;
+                    }
+                }
+
+                .note {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .note-name {
+                        background-color: azure;
+                        min-width: 20px;
+                        min-height: 20px;
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 100%;
+                        opacity: 0.9;
+
+                        &.tonic {
+                            background-color: cadetblue;
+                        }
+
+                        &.third {
+                            background-color: chocolate;
+                        }
+                    }
+                }
+            }
+        }   
+    }
+
+    .corps {
+        background-color: burlywood;
+        border-top-left-radius: 500px;
+        border-bottom-left-radius: 500px;
+        height: 90%;
+        width: 21%;
+        position: absolute;
+        right: 0;
+    }
+}
+
+.scale-filter {
+    position: fixed;
+    // bottom: 0;
+    width: 100%;
+    padding: 10px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    background-color: beige;
+
+    select {
+        margin-left: 10px;
+        margin-right: 10px;
+    }    
+}

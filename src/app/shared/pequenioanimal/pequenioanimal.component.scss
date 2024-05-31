@@ -1,0 +1,69 @@
+.pequenio-animal {
+    width: 250px;
+    height: 250px;
+    z-index: 2000;
+    // transform: translate(50%, 50%);
+    bottom: 70px;
+    right: 50%;
+    position: fixed;
+
+    img {
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .mouth {
+        width: 20px;
+        height: 10px;
+        position: absolute;
+        background: black;
+        transform: translate(148px, 105px);
+        animation: speaking 0.4s infinite;
+        
+    }
+
+    &.arriving {
+        animation: arriving 3s;
+
+        img {
+            animation: walking 0.5s infinite;            
+        }
+    }
+    &.leaving {
+        animation: leaving 3s;
+        transform: scaleX(-1);
+
+        img {
+            animation: walking 0.5s infinite;
+        }
+    }
+
+    @keyframes arriving {
+        0% {right: 100%;}
+        100% {right: 50%;}
+    }
+
+    @keyframes leaving {
+        0% {right: 50%; }
+        100% {right: 100%;}
+    }
+
+    @keyframes walking {
+        0% {transform: rotate(0deg);}
+        30% { transform: rotate(-10deg);}
+        60% { transform: rotate(10deg);}
+        100% {transform: rotate(0deg);}
+    }
+
+    @keyframes speaking {
+        from {    
+            border-radius: 40px;
+            width: 15px;
+            transform: translate(151px, 105px);}
+        to {
+            width: 20px;
+            height: 10px;
+            transform: translate(148px, 105px);
+        }
+    }
+}

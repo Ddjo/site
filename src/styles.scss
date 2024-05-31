@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../src/assets/styles/fonts.scss';
+// @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
+.bottom-menu-open {
+    overflow: hidden;
+}
+
+// color1 : $colorLighter
+// color2 : $colorMedium
+// color3 : $colorDarker

@@ -1,0 +1,4 @@
+<div class="pequenio-animal arriving" [ngClass]="{leaving: leaving}" #pequenioanimal>
+  <div class="mouth" *ngIf="speaking"></div>
+  <img [src]="imagesource" (click)="speak()">
+</div>
