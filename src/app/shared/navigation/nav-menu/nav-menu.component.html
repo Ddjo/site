@@ -1,17 +1,11 @@
 
 <ul class="nav menu">
 
-    <!-- <li class="nav-item {{menuItem.name}}" *ngFor="let menuItem of getMenuItems()"
-  (contextmenu)="mouseDownMenu($event, menuItem.route)" 
-  (mousedown)="mouseDownMenu($event, menuItem.route)" 
-  (mouseup)="mouseUpMenu($event)" 
-  (mouseleave)="mouseUpMenu($event)"
-  (touchStart)="mouseDownMenu($event, menuItem.route)" 
-  (touchCancel)="mouseUpMenu($event)"
-  (touchEnd)="mouseUpMenu($event)"
-  (press)="mouseDownMenu($event, menuItem.route)"
-  (pressup)="mouseUpMenu($event)">
-    <a class="nav-link" [ngClass]="{'holding-link': currentHoldingLink === menuItem.route, 'active' : getCurrentRoute() === menuItem.route }">{{ menuItem[getCurrentLangage()] }}</a>
-  </li> -->
+  <li >
+    <a routerLink="sandbox">Sandbox</a>
+    <a routerLink="music">Music</a>
+  </li>
+
+
  
 </ul>

@@ -18,8 +18,5 @@ import { FormsModule } from '@angular/forms';
   exports : [
     MusicComponent
   ],
-  providers: [
-  ],
-  bootstrap: []
 })
 export class MusicModule { }

@@ -7,13 +7,13 @@
 
 <!-- <app-intro *ngIf="!introComplete && !afficherModal()"></app-intro> -->
 
-<div class="modal-overlay" (click)="closeModal()" *ngIf="modalDisplayed" #modalBackdrop></div>
+<!-- <div class="modal-overlay" (click)="closeModal()" *ngIf="modalDisplayed" #modalBackdrop></div>
 <div class="modal-container" *ngIf="modalDisplayed" #modalBlock>
     <div class="close-modal-icon" (click)="closeModal()">
         <i class="fa fa-times"></i>
     </div>
     <ng-template  #modalcontainer></ng-template>
-</div>
+</div> -->
 
 <div class="content-overlay" [ngClass]="{'displayed': !lateralMenuHidden}" *ngIf="displayContentOverlay"></div>
 
@@ -23,7 +23,7 @@
 
 <app-pequenioanimal *ngIf="pequenioAnimalInvoqued" [leaving]="pequenioAnimalleaving"></app-pequenioanimal>
 
-
 <router-outlet></router-outlet>
+app component
     <!-- <app-multi-pages-app *ngIf="!isSinglePageApp()"></app-multi-pages-app>
     <app-single-page-app *ngIf="isSinglePageApp()"></app-single-page-app> -->

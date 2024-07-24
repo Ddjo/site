@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { MusicComponent } from './components/music/music.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 // import { ExperienceComponent } from './components/experiences/experience/experience.component';
 
 const appRoutes: Routes = [
-
-{ 
+  { 
+      path: 'sandbox',
+    loadChildren: () => import('./pages/sandbox/sandbox.module').then(x => x.SandboxModule   )
+  },
+  { 
     path: 'music',
- loadChildren: () => import('./components/music/music-routing.module').then(x => x.MusicRoutingModule   )
-},
-{ path: '', redirectTo: '/music', pathMatch: 'full' },
+    loadChildren: () => import('./pages/music/music.module').then(x => x.MusicModule   )
+  },
+  { 
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then(x => x.HomeModule   )
+  },
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
  
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes,     {preloadingStrategy: PreloadAllModules }
-    )],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
